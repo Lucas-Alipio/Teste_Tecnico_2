@@ -3,9 +3,9 @@ import '../main.dart';
 import 'package:teste_tecnico_2/player/mhero_sprite.dart';
 
 class Mhero extends SimplePlayer with ObjectCollision {
-  Mhero(Vector2 position)
+  Mhero()
       : super(
-          position: position,
+          position: Vector2(tileSize, tileSize),
           size: Vector2(tileSize, tileSize),
           animation: SimpleDirectionAnimation(
             idleLeft: MheroSprite.heroIdleLeft,

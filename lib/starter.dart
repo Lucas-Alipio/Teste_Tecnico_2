@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:teste_tecnico_2/player/mhero.dart';
 
 import 'main.dart';
 
@@ -17,6 +18,12 @@ class _StarterState extends State<Starter> {
       map: TiledWorldMap(
         'maps/map.json',
         forceTileSize: const Size(tileSize, tileSize),
+      ),
+      player: Mhero(),
+      joystick: Joystick(
+        keyboardConfig: KeyboardConfig(
+          keyboardDirectionalType: KeyboardDirectionalType.wasdAndArrows,
+        ),
       ),
       showCollisionArea: true,
     );
