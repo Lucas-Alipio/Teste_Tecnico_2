@@ -1,5 +1,8 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:teste_tecnico_2/player/mhero.dart';
+
+const double tileSize = 32;
 
 void main() {
   runApp(const MyApp());
@@ -27,10 +30,14 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BonfireTiledWidget(
+      joystick: Joystick(
+        directional: JoystickDirectional(),
+      ),
       map: TiledWorldMap(
         'maps/map.json',
-        forceTileSize: const Size(24, 24),
+        forceTileSize: const Size(tileSize, tileSize),
       ),
+      player: Mhero(Vector2(0.5 * tileSize, 0.5 * tileSize)),
     );
   }
 }
