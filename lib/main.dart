@@ -37,7 +37,8 @@ class MyHomePage extends StatelessWidget {
         'maps/map.json',
         forceTileSize: const Size(tileSize, tileSize),
       ),
-      player: Mhero(Vector2(0.5 * tileSize, 0.5 * tileSize)),
+      player: Mhero(Vector2(tileSize, tileSize)),
+      showCollisionArea: true,
     );
   }
 }

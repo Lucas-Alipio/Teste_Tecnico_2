@@ -14,5 +14,16 @@ class Mhero extends SimplePlayer with ObjectCollision {
             runRight: MheroSprite.heroRunRight,
           ),
           speed: 90,
-        );
+        ) {
+    setupCollision(
+      CollisionConfig(
+        collisions: [
+          CollisionArea.rectangle(
+            size: Vector2(14, 10),
+            align: Vector2(9, 22),
+          ),
+        ],
+      ),
+    );
+  }
 }

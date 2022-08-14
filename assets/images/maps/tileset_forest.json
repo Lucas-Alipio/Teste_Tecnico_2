@@ -304,6 +304,32 @@
             }
         }, 
         {
+         "id":47,
+         "objectgroup":
+            {
+             "draworder":"index",
+             "id":2,
+             "name":"",
+             "objects":[
+                    {
+                     "class":"",
+                     "height":2.65217391304348,
+                     "id":1,
+                     "name":"",
+                     "rotation":0,
+                     "visible":true,
+                     "width":16.0434782608696,
+                     "x":0,
+                     "y":13.4347826086957
+                    }],
+             "opacity":1,
+             "type":"objectgroup",
+             "visible":true,
+             "x":0,
+             "y":0
+            }
+        }, 
+        {
          "id":436,
          "objectgroup":
             {
