@@ -2,8 +2,6 @@ import 'package:bonfire/bonfire.dart';
 
 import '../main.dart';
 
-import 'dart:async' as async;
-
 class Sword extends GameDecoration with Sensor {
   Sword(Vector2 position)
       : super.withAnimation(
