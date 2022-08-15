@@ -14,6 +14,7 @@ class Mhero extends SimplePlayer with ObjectCollision {
             runRight: MheroSprite.heroRunRight,
           ),
           speed: 70,
+          life: 1000,
         ) {
     setupCollision(
       CollisionConfig(
@@ -31,13 +32,25 @@ class Mhero extends SimplePlayer with ObjectCollision {
   bool onCollision(GameComponent component, bool active) {
     if (component is Enemy) {
       if (lastDirectionHorizontal == Direction.left) {
-        animation?.playOnce(MheroSprite.heroReceiveDamageLeft);
+        animation?.playOnce(MheroSprite.heroReceiveDamageLeft,
+            runToTheEnd: true);
+        life -= 10;
       } else {
-        animation?.playOnce(MheroSprite.heroReceiveDamageLeft);
+        animation?.playOnce(MheroSprite.heroReceiveDamageLeft,
+            runToTheEnd: true);
+        life -= 10;
+        if (life <= 0) {
+          die();
+        }
       }
-      life -= 10;
     }
 
     return super.onCollision(component, active);
+  }
+
+  @override
+  void die() {
+    removeFromParent();
+    super.die();
   }
 }

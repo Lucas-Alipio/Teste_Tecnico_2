@@ -24,13 +24,14 @@ class Mush extends GameDecoration with Sensor {
       ),
     ]);
   }
+
   @override
   void onContact(GameComponent collision) {
     if (collision is SimplePlayer) {
       points++;
       print(points);
       generateValues(
-        const Duration(milliseconds: 500),
+        const Duration(milliseconds: 300),
         onChange: (value) {},
       );
 

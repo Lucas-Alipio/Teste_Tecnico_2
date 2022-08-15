@@ -8,7 +8,7 @@ class DemonEnemy extends SimpleEnemy with ObjectCollision {
       : super(
           position: position,
           size: Vector2(tileSize, tileSize),
-          speed: 50,
+          speed: 40,
           animation: SimpleDirectionAnimation(
             idleLeft: DemonSprite.demonIdleLeft,
             idleRight: DemonSprite.demonIdleRight,
@@ -31,19 +31,9 @@ class DemonEnemy extends SimpleEnemy with ObjectCollision {
   @override
   void update(double dt) {
     seeAndMoveToPlayer(
-      closePlayer: (player) {
-        simpleAttackMelee(
-          damage: 10,
-          size: Vector2(15, 15),
-          animationRight: SlashAbilitySprite.right,
-          animationDown: SlashAbilitySprite.down,
-          animationLeft: SlashAbilitySprite.left,
-          animationUp: SlashAbilitySprite.up,
-          direction: lastDirection,
-        );
-      },
+      closePlayer: (player) {},
       radiusVision: tileSize * 5,
-      margin: 2,
+      margin: 0,
     );
 
     super.update(dt);

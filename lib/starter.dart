@@ -46,7 +46,7 @@ class _StarterState extends State<Starter> {
       ],
       showCollisionArea: true,
       cameraConfig: CameraConfig(
-        zoom: 1.2,
+        zoom: 2,
         smoothCameraEnabled: true,
       ),
     );

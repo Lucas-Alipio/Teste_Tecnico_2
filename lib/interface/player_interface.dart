@@ -2,6 +2,8 @@ import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'dart:async' as async;
 
+import 'package:teste_tecnico_2/main.dart';
+
 class PlayerInterface extends StatefulWidget {
   static const overlayKey = 'playerInterface';
   final BonfireGame game;
@@ -13,14 +15,15 @@ class PlayerInterface extends StatefulWidget {
 
 class _PlayerInterfaceState extends State<PlayerInterface> {
   double life = 0;
-  double maxWidth = 100;
+  double lifeBar = 100;
+  double pAux = 0;
 
   late async.Timer _lifeTime;
 
   @override
   void initState() {
-    _lifeTime =
-        async.Timer.periodic(const Duration(milliseconds: 100), _verifyLife);
+    _lifeTime = async.Timer.periodic(
+        const Duration(milliseconds: 100), _verifyLifeAndPoints);
     super.initState();
   }
 
@@ -32,17 +35,38 @@ class _PlayerInterfaceState extends State<PlayerInterface> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: maxWidth,
-      height: 40,
-      color: Colors.green,
+    return Row(
+      children: [
+        Container(
+          margin: const EdgeInsets.all(5),
+          width: lifeBar,
+          height: 30,
+          color: Colors.green,
+        ),
+        Text(
+          'points: $pAux',
+          style: const TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              decoration: TextDecoration.none),
+        )
+      ],
     );
   }
 
-  void _verifyLife(async.Timer timer) {
+  void _verifyLifeAndPoints(async.Timer timer) {
     if (life != (widget.game.player?.life ?? 0)) {
       setState(() {
-        life = widget.game.player?.life ?? 0;
+        life = (widget.game.player?.life ?? 0);
+
+        final percent = life / (widget.game.player?.maxLife ?? 0);
+        lifeBar = 100 * percent;
+      });
+    }
+
+    if (pAux != (points)) {
+      setState(() {
+        pAux = points;
       });
     }
   }

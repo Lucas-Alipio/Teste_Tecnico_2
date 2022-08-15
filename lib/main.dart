@@ -3,7 +3,7 @@ import 'package:teste_tecnico_2/starter.dart';
 
 const double tileSize = 16;
 double points = 0;
-bool boost = true;
+bool boost = false;
 
 void main() {
   runApp(
