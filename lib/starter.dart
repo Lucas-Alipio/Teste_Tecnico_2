@@ -44,8 +44,11 @@ class _StarterState extends State<Starter> {
       ),
       components: [
         DemonEnemy(position: Vector2(10 * tileSize, 10 * tileSize)),
+        DemonEnemy(position: Vector2(14 * tileSize, 14 * tileSize)),
+        DemonEnemy(position: Vector2(18 * tileSize, 16 * tileSize)),
+        DemonEnemy(position: Vector2(20 * tileSize, 10 * tileSize)),
       ],
-      showCollisionArea: true,
+      //showCollisionArea: true,
       cameraConfig: CameraConfig(
         zoom: 2,
         smoothCameraEnabled: true,
