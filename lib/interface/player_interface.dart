@@ -17,8 +17,11 @@ class _PlayerInterfaceState extends State<PlayerInterface> {
   double life = 0;
   double lifeBar = 100;
   double pAux = 0;
+  bool bAux = false;
 
   late async.Timer _lifeTime;
+  late async.Timer timer;
+  Timer t = Timer(5000);
 
   @override
   void initState() {
@@ -37,19 +40,46 @@ class _PlayerInterfaceState extends State<PlayerInterface> {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        const Text(
+          'Vida: ',
+          style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              decoration: TextDecoration.none),
+        ),
+        const SizedBox(
+          width: 5,
+        ),
         Container(
           margin: const EdgeInsets.all(5),
           width: lifeBar,
           height: 30,
-          color: Colors.green,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(3),
+            color: Colors.green,
+            border: Border.all(color: Colors.white),
+          ),
+        ),
+        const SizedBox(
+          width: 100,
         ),
         Text(
-          'points: $pAux',
+          'pontos: $pAux',
           style: const TextStyle(
               color: Colors.white,
               fontSize: 20,
               decoration: TextDecoration.none),
-        )
+        ),
+        const SizedBox(
+          width: 200,
+        ),
+        Text(
+          'boost: $bAux',
+          style: const TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              decoration: TextDecoration.none),
+        ),
       ],
     );
   }
@@ -67,6 +97,12 @@ class _PlayerInterfaceState extends State<PlayerInterface> {
     if (pAux != (points)) {
       setState(() {
         pAux = points;
+      });
+    }
+
+    if (bAux != boost) {
+      setState(() {
+        bAux = boost;
       });
     }
   }

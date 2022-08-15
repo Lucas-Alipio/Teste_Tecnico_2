@@ -2,6 +2,8 @@ import 'package:bonfire/bonfire.dart';
 
 import '../main.dart';
 
+import 'dart:async' as async;
+
 class Sword extends GameDecoration with Sensor {
   Sword(Vector2 position)
       : super.withAnimation(
@@ -25,12 +27,19 @@ class Sword extends GameDecoration with Sensor {
     ]);
   }
 
+  void timer() {
+    Future.delayed(const Duration(seconds: 3), () {
+      boost = false;
+    });
+  }
+
   @override
   void onContact(GameComponent component) {
     if (component is SimplePlayer) {
       boost = true;
+      timer();
       generateValues(
-        const Duration(milliseconds: 300),
+        const Duration(milliseconds: 200),
         onChange: (value) {},
       );
 

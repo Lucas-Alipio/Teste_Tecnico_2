@@ -28,7 +28,7 @@ class Mush extends GameDecoration with Sensor {
   @override
   void onContact(GameComponent component) {
     if (component is SimplePlayer) {
-      points++;
+      points += 10;
       generateValues(
         const Duration(milliseconds: 300),
         onChange: (value) {},
