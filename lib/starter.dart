@@ -1,6 +1,11 @@
+import 'dart:html';
+
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:teste_tecnico_2/enemies/demon.dart';
+import 'package:teste_tecnico_2/interface/player_interface.dart';
 import 'package:teste_tecnico_2/player/mhero.dart';
+import 'package:teste_tecnico_2/points/mush.dart';
 
 import 'main.dart';
 
@@ -18,14 +23,32 @@ class _StarterState extends State<Starter> {
       map: TiledWorldMap(
         'maps/map.json',
         forceTileSize: const Size(tileSize, tileSize),
+        objectsBuilder: {
+          'p': (properties) => Mush(
+              Vector2(properties.position.x - 12, properties.position.y - 12)),
+        },
       ),
       player: Mhero(),
+      overlayBuilderMap: {
+        PlayerInterface.overlayKey: (context, game) =>
+            PlayerInterface(game: game)
+      },
+      initialActiveOverlays: const [
+        PlayerInterface.overlayKey,
+      ],
       joystick: Joystick(
         keyboardConfig: KeyboardConfig(
           keyboardDirectionalType: KeyboardDirectionalType.wasdAndArrows,
         ),
       ),
+      components: [
+        DemonEnemy(position: Vector2(10 * tileSize, 10 * tileSize)),
+      ],
       showCollisionArea: true,
+      cameraConfig: CameraConfig(
+        zoom: 1.2,
+        smoothCameraEnabled: true,
+      ),
     );
   }
 }

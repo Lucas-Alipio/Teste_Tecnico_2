@@ -1,0 +1,14 @@
+{ "columns":3,
+ "image":"weapons_.png",
+ "imageheight":120,
+ "imagewidth":60,
+ "margin":0,
+ "name":"weapons",
+ "spacing":0,
+ "tilecount":21,
+ "tiledversion":"1.9.1",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.8"
+}
