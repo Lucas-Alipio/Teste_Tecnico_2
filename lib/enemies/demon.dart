@@ -1,5 +1,4 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:teste_tecnico_2/abilities/slash_ability_sprite.dart';
 import '../main.dart';
 import 'package:teste_tecnico_2/enemies/demon_sprite.dart';
 
